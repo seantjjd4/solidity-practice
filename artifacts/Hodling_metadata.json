@@ -1,0 +1,71 @@
+{
+	"compiler": {
+		"version": "0.8.7+commit.e28d00a7"
+	},
+	"language": "Solidity",
+	"output": {
+		"abi": [
+			{
+				"inputs": [],
+				"stateMutability": "nonpayable",
+				"type": "constructor"
+			},
+			{
+				"inputs": [],
+				"name": "available_destory",
+				"outputs": [
+					{
+						"internalType": "bool",
+						"name": "",
+						"type": "bool"
+					}
+				],
+				"stateMutability": "view",
+				"type": "function"
+			},
+			{
+				"inputs": [],
+				"name": "destory",
+				"outputs": [],
+				"stateMutability": "nonpayable",
+				"type": "function"
+			}
+		],
+		"devdoc": {
+			"kind": "dev",
+			"methods": {},
+			"version": 1
+		},
+		"userdoc": {
+			"kind": "user",
+			"methods": {},
+			"version": 1
+		}
+	},
+	"settings": {
+		"compilationTarget": {
+			"hodling.sol": "Hodling"
+		},
+		"evmVersion": "london",
+		"libraries": {},
+		"metadata": {
+			"bytecodeHash": "ipfs"
+		},
+		"optimizer": {
+			"enabled": false,
+			"runs": 200
+		},
+		"remappings": []
+	},
+	"sources": {
+		"hodling.sol": {
+			"keccak256": "0xc12f51b22f560d06b405edce5ca4da3de795fc56b7d5b100accc669be4ab9170",
+			"license": "GPL 3.0",
+			"urls": [
+				"bzz-raw://f17deebddf992d43c0732f105c0c7774b6324f86860a2212df8ba142d7af7b2f",
+				"dweb:/ipfs/QmRTFGy3vjAuuMyMvJo6FnQJmhQZzNcaRSpBRckhuuMVEC"
+			]
+		}
+	},
+	"version": 1
+}
