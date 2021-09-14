@@ -3,6 +3,13 @@
 pragma solidity >=0.7.0 <0.9.0;
 
 contract Bank{
+    
+    event event_add_balance(address customer_address, uint256 amount);
+    event event_add_loan(address customer_address, uint256 amount);
+    event event_withdraw(address customer_address, uint256 amount);
+    event event_receive(address donor, uint256 amount);
+    
+    address payable owner;
     string public bank_name;
     uint8 day_interest_rate;
     uint8 day_lending_rate;
@@ -15,6 +22,11 @@ contract Bank{
         uint256 customer_lending_amount;
     }
     mapping(address => Customers) address_to_customers;
+    
+    modifier is_onwer(){
+        require(msg.sender == owner, "You are not the owner");
+        _;
+    }
     
     constructor(string memory name){
         bank_name = name;
@@ -29,18 +41,21 @@ contract Bank{
         address_to_customers[customer_address].customer_lending_amount = 0;
     }   
     
-    function AddBalance(address payable customer_address, uint256 value) public {
+    function add_balance(address payable customer_address, uint256 value) public is_onwer{
         address_to_customers[customer_address].customer_balance += value;
+        emit event_add_balance(customer_address, value);
+        
     }
     
-    function AddLoan(address payable customer_address , uint256 value) public {
+    function add_loan(address payable customer_address , uint256 value) public is_onwer{
         address_to_customers[customer_address].customer_lending_amount += value;
+        emit event_add_loan(customer_address, value);
     }
-    function CheckBalance (address payable customer_address) public view returns(uint256) {
+    function check_balance (address payable customer_address) public view returns(uint256) {
         return address_to_customers[customer_address].customer_balance - address_to_customers[customer_address].customer_lending_amount;
     }
     
-    function CheckLoan (address payable customer_address) public view returns(uint256){
+    function check_loan (address payable customer_address) public view returns(uint256){
         return address_to_customers[customer_address].customer_lending_amount;
     }
     
@@ -59,9 +74,22 @@ contract Bank{
         return sum;
     }
     
+    receive() external payable{
+        emit event_receive(msg.sender, msg.value);
+    }
+    
+    fallback() external payable{
+        
+    }
+    
+    function destroy() external is_onwer{
+        selfdestruct(owner);
+    }
+    
     function withdraw() external returns(uint256){
         address user = payable(msg.sender);
         uint256 balance = address_to_customers[user].customer_balance - address_to_customers[user].customer_lending_amount;
+        require(balance > 0, "balance not enough");
         address_to_customers[user].customer_balance -= balance;
         return balance;
     }

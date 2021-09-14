@@ -6,6 +6,93 @@
 	"output": {
 		"abi": [
 			{
+				"inputs": [
+					{
+						"internalType": "string",
+						"name": "name",
+						"type": "string"
+					}
+				],
+				"stateMutability": "nonpayable",
+				"type": "constructor"
+			},
+			{
+				"anonymous": false,
+				"inputs": [
+					{
+						"indexed": false,
+						"internalType": "string",
+						"name": "name",
+						"type": "string"
+					},
+					{
+						"indexed": false,
+						"internalType": "address",
+						"name": "sales_address",
+						"type": "address"
+					}
+				],
+				"name": "event_add_sales",
+				"type": "event"
+			},
+			{
+				"anonymous": false,
+				"inputs": [
+					{
+						"indexed": false,
+						"internalType": "address",
+						"name": "sales_address",
+						"type": "address"
+					},
+					{
+						"indexed": false,
+						"internalType": "uint256",
+						"name": "profit",
+						"type": "uint256"
+					}
+				],
+				"name": "event_performance",
+				"type": "event"
+			},
+			{
+				"anonymous": false,
+				"inputs": [
+					{
+						"indexed": false,
+						"internalType": "address",
+						"name": "donor",
+						"type": "address"
+					},
+					{
+						"indexed": false,
+						"internalType": "uint256",
+						"name": "amount",
+						"type": "uint256"
+					}
+				],
+				"name": "event_receive",
+				"type": "event"
+			},
+			{
+				"anonymous": false,
+				"inputs": [
+					{
+						"indexed": false,
+						"internalType": "address",
+						"name": "sales_address",
+						"type": "address"
+					},
+					{
+						"indexed": false,
+						"internalType": "uint256",
+						"name": "amount",
+						"type": "uint256"
+					}
+				],
+				"name": "event_withdraw",
+				"type": "event"
+			},
+			{
 				"stateMutability": "payable",
 				"type": "fallback"
 			},
@@ -169,11 +256,11 @@
 	},
 	"sources": {
 		"company.sol": {
-			"keccak256": "0x7fd729a1fce842c2e613052c8bd67db5c0e0d5b98c8f8fcbe590f9488abe1c0c",
+			"keccak256": "0xb167d11d4201a179e208028509403b9a564032f51fdd8baedb6d82c3b32261e6",
 			"license": "GPL 3.0",
 			"urls": [
-				"bzz-raw://de4b634b0adae6dc5a65d13cbe254c184a3ae0e810f4cdf5ae87a31788bdd079",
-				"dweb:/ipfs/QmRf7oVdfAUg6NsbSatWcuWYtmQaRX5yG1nFaSuXu4RQ8n"
+				"bzz-raw://55ab6aa171d39722988500f62bb88f613f57ba0e4976d8caae2fd45f020b3200",
+				"dweb:/ipfs/QmYurs6iiMByPuRfd2sY6YVt6UaEN213bxRNkdrhQH7628"
 			]
 		}
 	},
